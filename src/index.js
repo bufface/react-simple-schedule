@@ -9,10 +9,12 @@ import HeaderWeek from './components/HeaderWeek'
 import Calendar from './components/Calendar'
 
 const Container = style.div`
+  font-family: sans-serif;
   display: grid;
   height: 100vw;
+  max-height: 100%;
   grid-template-columns: repeat(7, minmax(30px, 100px));
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 20px 20px;
   grid-auto-rows: minmax(30px, 100px);
 `
 

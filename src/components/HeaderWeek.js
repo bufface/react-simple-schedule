@@ -4,7 +4,6 @@ import style from 'styled-components'
 import { Context } from './Provider'
 
 const DayName = style.span`
-  margin-top: 5px
   text-align: center;
   border-top: 1px solid lightgrey;
 `
