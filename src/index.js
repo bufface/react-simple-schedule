@@ -3,72 +3,38 @@ import PropTypes from 'prop-types'
 import style from 'styled-components'
 import dayjs from 'dayjs'
 
+import Provider from './components/Provider'
+import Header from './components/Header'
+import HeaderWeek from './components/HeaderWeek'
+import Calendar from './components/Calendar'
+
 const Container = style.div`
   display: grid;
-  grid-gap: 5px;
   grid-template-columns: repeat(7, minmax(30px, 100px));
-  grid-template-rows: 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-auto-rows: 100px;
   justify-items: center;
+  border: 1px solid lightgrey;
 `
 
-const Day = style.div`
-  background-color: ${props => props.color || 'white'};
-  width: 100%;
-  text-align: right;
-`
-
-const printDaysName = () =>
-  ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map(day => (
-    <span key={day}>{day}</span>
-  ))
-
-const DrawDays = date => {
-  const monthSelected = date.month()
-  const startOfMonth = dayjs(date).startOf('month')
-  const endOfMonth = dayjs().endOf('month')
-  let day = dayjs(startOfMonth).startOf('week')
-
-  const html = []
-  let grid, firstIteration
-  grid = firstIteration = 35
-  while (grid) {
-    let colorBg = 'white'
-
-    if (grid !== firstIteration) day = day.add(1, 'day')
-
-    // Disabled days (before today)
-    if ((day.isBefore(date) && day.isAfter(startOfMonth)) || day.isSame(startOfMonth))
-      colorBg = 'lightgrey'
-
-    // Enabled days (same or after today)
-    const sameDay = date.format('YYYY-MM-DD') === day.format('YYYY-MM-DD')
-    if ((day.isAfter(date) || sameDay) && day.isBefore(endOfMonth)) colorBg = 'lightblue'
-
-    html.push(
-      <Day color={colorBg} key={grid}>
-        {day.format('D')}
-      </Day>
-    )
-    grid--
-  }
-
-  return html
-}
-
-const Schedule = ({ date }) => (
-  <Container>
-    {printDaysName()}
-    {DrawDays(date)}
-  </Container>
+const Schedule = (props) => (
+  <Provider data={ props }>
+    <Container>
+      <Header />
+      <HeaderWeek />
+      <Calendar />
+    </Container>
+  </Provider>
 )
 
 Schedule.propTypes = {
-  date: PropTypes.object
+  selectedDate: PropTypes.object,
+  listOfDays: PropTypes.arrayOf(PropTypes.string)
 }
 
 Schedule.defaultProps = {
-  date: dayjs()
+  selectedDate: dayjs(),
+  listOfDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 }
 
 export default Schedule
