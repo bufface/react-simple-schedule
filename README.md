@@ -8,7 +8,7 @@
 This is a WIP. It will be available as soon as possible
 
 #### Here is an image of the current appearance 😘
-![Screen Shot](https://github.com/bufface/react-simple-schedule/blob/master/src/Screen_shot.png "Screen Shot")
+![Screen Shot](https://raw.githubusercontent.com/bufface/react-simple-schedule/master/Screen_Shot.png "Screen Shot")
 
 ## License
 
