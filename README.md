@@ -1,31 +1,15 @@
-# react-simple-schedule
+# 🗓 React Simple Schedule
 
 > Simple Schedule Componet for React
 
 [![NPM](https://img.shields.io/npm/v/react-simple-schedule.svg)](https://www.npmjs.com/package/react-simple-schedule) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Install
+## ✋ Hey! Stop there
+This is a WIP. It will be available as soon as possible
 
-```bash
-npm install --save react-simple-schedule
-```
-
-## Usage
-
-```jsx
-import React, { Component } from 'react'
-
-import MyComponent from 'react-simple-schedule'
-
-class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
-}
-```
+#### Here is an image of the current appearance 😘
+![Screen Shot](https://github.com/bufface/react-simple-schedule/blob/master/src/Screen_shot.png "Screen Shot")
 
 ## License
 
-MIT © [bufface](https://github.com/bufface)
+MIT © [Cristia Buffa](https://github.com/bufface)
