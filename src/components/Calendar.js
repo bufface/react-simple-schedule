@@ -17,7 +17,7 @@ const renderCalendar = (selectedDate) => {
 
   const html = []
   let grid, firstIteration
-  grid = firstIteration = 35
+  grid = firstIteration = 42
   while (grid) {
     let colorBg = ''
 

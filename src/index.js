@@ -13,7 +13,6 @@ const Container = style.div`
   grid-template-columns: repeat(7, minmax(30px, 100px));
   grid-template-rows: 1fr 1fr;
   grid-auto-rows: 100px;
-  justify-items: center;
   border: 1px solid lightgrey;
 `
 
