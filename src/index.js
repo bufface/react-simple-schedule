@@ -10,10 +10,10 @@ import Calendar from './components/Calendar'
 
 const Container = style.div`
   display: grid;
+  height: 100vw;
   grid-template-columns: repeat(7, minmax(30px, 100px));
   grid-template-rows: 1fr 1fr;
-  grid-auto-rows: 100px;
-  border: 1px solid lightgrey;
+  grid-auto-rows: minmax(30px, 100px);
 `
 
 const Schedule = (props) => (
@@ -33,7 +33,7 @@ Schedule.propTypes = {
 
 Schedule.defaultProps = {
   selectedDate: dayjs(),
-  listOfDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  listOfDays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 }
 
 export default Schedule

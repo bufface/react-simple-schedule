@@ -7,6 +7,7 @@ import { Context } from './Provider'
 const MonthName = style.span`
   grid-column: span 5;
   text-align: center;
+  align-self: center;
 `
 
 export default () =>(

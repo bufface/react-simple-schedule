@@ -5,9 +5,9 @@ import style from 'styled-components'
 import { Context } from './Provider'
 
 const Day = style.div`
-  width: 100%;
+  border: .5px solid lightgrey;
   text-align: right;
-  pading: 5px;
+  padding: 5px;
   background-color: ${props => props.color || 'white'};
 `
 
