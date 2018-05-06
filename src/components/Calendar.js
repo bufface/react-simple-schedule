@@ -13,10 +13,7 @@ const Day = style.div`
 
 const renderCalendar = (selectedDate) => {
   const today = dayjs()
-  const monthSelected = selectedDate.month()
-  const startOfMonth = selectedDate.startOf('month')
-  const endOfMonth = dayjs().endOf('month')
-  let day = startOfMonth.startOf('week')
+  let day = selectedDate.startOf('month').startOf('week')
 
   const html = []
   let grid, firstIteration
@@ -32,7 +29,7 @@ const renderCalendar = (selectedDate) => {
       if (day.isBefore(today)) colorBg = 'lightgrey'
 
       // Enabled days (same or after selectedDate)
-      const sameDay = selectedDate.format('YYYY-MM-DD') === day.format('YYYY-MM-DD')
+      const sameDay = today.format('YYYY-MM-DD') === day.format('YYYY-MM-DD')
       if ((day.isAfter(today) || sameDay)) colorBg = 'lightblue'
     }
 
