@@ -1,18 +1,33 @@
 import React from 'react'
+import style, { css } from 'styled-components'
 import dayjs from 'dayjs'
-import style from 'styled-components'
 
 import { Context } from './Provider'
 import highlightDays from '../helpers/highlightDays'
 
 const Day = style.div`
   text-align: right;
-  padding: 5px;
-  background-color: ${props => props.colorBg || 'white'};
+  background-color: white;
+  border: 1px solid black;
+
+  ${props => props.before && css`
+    color: white;
+    background-color: lightgrey;
+    border: none;
+  `}
+
+  ${props => props.active && css`
+    color: white;
+    background-color: lightblue;
+    border: none;
+  `}
+
+  ${props => props.disabled && css`
+    color: lightgrey;
+  `}
 `
 
 const renderCalendar = (selectedDate, highlight) => {
-  const today = dayjs()
   let day = selectedDate.startOf('month').startOf('week')
 
   const html = []
@@ -22,7 +37,10 @@ const renderCalendar = (selectedDate, highlight) => {
     if (grid !== firstIteration) day = day.add(1, 'day')
 
     let props = {}
-    if (highlight) props = highlightDays(selectedDate)
+    if (highlight) props = highlightDays(selectedDate, day)
+
+    const currentMonth = selectedDate.format('YYYY-MM') === day.format('YYYY-MM')
+    if (!currentMonth) props.disabled = true;
 
     html.push(
       <Day { ...props } key={grid}>

@@ -14,9 +14,9 @@ const Container = style.div`
   height: 100vw;
   max-height: 100vh;
   grid-template-columns: repeat(7, minmax(30px, 1fr));
-  grid-template-rows: 25px 25px;
+  grid-gap: 5px;
+  grid-template-rows: auto auto;
   grid-auto-rows: minmax(30px, 1fr);
-  border: 1px solid lightgrey;
 `
 
 const Schedule = (props) => (
@@ -36,7 +36,7 @@ Schedule.propTypes = {
 }
 
 Schedule.defaultProps = {
-  highlight: false,
+  highlight: true,
   selectedDate: dayjs(),
   listOfDays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 }
