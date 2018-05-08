@@ -12,10 +12,11 @@ const Container = style.div`
   font-family: sans-serif;
   display: grid;
   height: 100vw;
-  max-height: 100%;
-  grid-template-columns: repeat(7, minmax(30px, 100px));
-  grid-template-rows: 20px 20px;
-  grid-auto-rows: minmax(30px, 100px);
+  max-height: 100vh;
+  grid-template-columns: repeat(7, minmax(30px, 1fr));
+  grid-template-rows: 25px 25px;
+  grid-auto-rows: minmax(30px, 1fr);
+  border: 1px solid lightgrey;
 `
 
 const Schedule = (props) => (
@@ -29,11 +30,13 @@ const Schedule = (props) => (
 )
 
 Schedule.propTypes = {
+  highlight: PropTypes.bool,
   selectedDate: PropTypes.object,
   listOfDays: PropTypes.arrayOf(PropTypes.string)
 }
 
 Schedule.defaultProps = {
+  highlight: false,
   selectedDate: dayjs(),
   listOfDays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 }

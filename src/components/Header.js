@@ -3,21 +3,20 @@ import dayjs from 'dayjs'
 import style from 'styled-components'
 
 import { Context } from './Provider'
+import { FullWidth } from '../styles/commons'
 
-const MonthName = style.span`
-  grid-column: span 5;
-  text-align: center;
-  align-self: center;
+const MonthName = style.h4`
+  margin: 0;
 `
 
 export default () =>(
   <Context.Consumer>
     {({ prevMonth, nextMonth, state: { selectedDate }}) => (
-      <React.Fragment>
+      <FullWidth>
         <button onClick={ prevMonth }>Back</button>
         <MonthName>{ selectedDate.format('MMM / YYYY') }</MonthName>
         <button onClick={ nextMonth }>Next</button>
-      </React.Fragment>
+      </FullWidth>
     )}
   </Context.Consumer>
 )

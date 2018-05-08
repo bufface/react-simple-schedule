@@ -3,15 +3,15 @@ import dayjs from 'dayjs'
 import style from 'styled-components'
 
 import { Context } from './Provider'
+import highlightDays from '../helpers/highlightDays'
 
 const Day = style.div`
-  border: 1px solid lightgrey;
   text-align: right;
   padding: 5px;
-  background-color: ${props => props.color || 'white'};
+  background-color: ${props => props.colorBg || 'white'};
 `
 
-const renderCalendar = (selectedDate) => {
+const renderCalendar = (selectedDate, highlight) => {
   const today = dayjs()
   let day = selectedDate.startOf('month').startOf('week')
 
@@ -19,22 +19,13 @@ const renderCalendar = (selectedDate) => {
   let grid, firstIteration
   grid = firstIteration = 42
   while (grid) {
-    let colorBg = ''
-
     if (grid !== firstIteration) day = day.add(1, 'day')
 
-    const currentMonth = selectedDate.format('YYYY-MM') === day.format('YYYY-MM')
-    if (currentMonth) {
-      // Disabled days (before today)
-      if (day.isBefore(today)) colorBg = 'lightgrey'
-
-      // Enabled days (same or after selectedDate)
-      const sameDay = today.format('YYYY-MM-DD') === day.format('YYYY-MM-DD')
-      if ((day.isAfter(today) || sameDay)) colorBg = 'lightblue'
-    }
+    let props = {}
+    if (highlight) props = highlightDays(selectedDate)
 
     html.push(
-      <Day color={colorBg} key={grid}>
+      <Day { ...props } key={grid}>
         {day.format('D')}
       </Day>
     )
@@ -46,6 +37,6 @@ const renderCalendar = (selectedDate) => {
 
 export default () => (
   <Context.Consumer>
-    {({ state: { selectedDate }}) => renderCalendar(selectedDate)}
+    {({ state: { selectedDate, highlight }}) => renderCalendar(selectedDate, highlight)}
   </Context.Consumer>
 )
