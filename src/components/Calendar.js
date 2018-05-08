@@ -46,10 +46,6 @@ const renderCalendar = (selectedDate) => {
 
 export default () => (
   <Context.Consumer>
-    {({ state: { selectedDate }}) => (
-      <React.Fragment>
-        { renderCalendar(selectedDate) }
-      </React.Fragment>
-    )}
+    {({ state: { selectedDate }}) => renderCalendar(selectedDate)}
   </Context.Consumer>
 )
