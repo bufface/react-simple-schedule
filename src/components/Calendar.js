@@ -6,9 +6,11 @@ import { Context } from './Provider'
 import highlightDays from '../helpers/highlightDays'
 
 const Day = style.div`
+  font-size: 13px;
+  padding: 3px;
   text-align: right;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid lightslategray;
 
   ${props => props.before && css`
     color: white;
@@ -22,9 +24,7 @@ const Day = style.div`
     border: none;
   `}
 
-  ${props => props.disabled && css`
-    color: lightgrey;
-  `}
+  ${props => props.disabled && css`color: lightgrey;`}
 `
 
 const renderCalendar = (selectedDate, highlight) => {

@@ -11,8 +11,7 @@ import Calendar from './components/Calendar'
 const Container = style.div`
   font-family: sans-serif;
   display: grid;
-  height: 100vw;
-  max-height: 100vh;
+  height: 100%;
   grid-template-columns: repeat(7, minmax(30px, 1fr));
   grid-gap: 5px;
   grid-template-rows: auto auto;
@@ -36,7 +35,7 @@ Schedule.propTypes = {
 }
 
 Schedule.defaultProps = {
-  highlight: true,
+  highlight: false,
   selectedDate: dayjs(),
   listOfDays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 }
