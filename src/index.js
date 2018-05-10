@@ -29,6 +29,7 @@ const Schedule = (props) => (
 )
 
 Schedule.propTypes = {
+  dates: PropTypes.arrayOf(PropTypes.object),
   highlight: PropTypes.bool,
   selectedDate: PropTypes.object,
   listOfDays: PropTypes.arrayOf(PropTypes.string)

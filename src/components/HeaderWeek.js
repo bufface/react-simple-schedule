@@ -2,7 +2,7 @@ import React from 'react'
 import style from 'styled-components'
 
 import { Context } from './Provider'
-import { FullWidth } from '../styles/commons'
+import { FullWidth } from '../styles/components'
 
 const DayName = style.span`
   text-align: center;

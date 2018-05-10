@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 import style from 'styled-components'
 
 import { Context } from './Provider'
-import { FullWidth } from '../styles/commons'
+import { FullWidth } from '../styles/components'
 
 const MonthName = style.h4`
   margin: 0;

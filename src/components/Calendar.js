@@ -27,11 +27,11 @@ const Day = style.div`
   ${props => props.disabled && css`color: lightgrey;`}
 `
 
-const renderCalendar = (selectedDate, highlight) => {
-  let day = selectedDate.startOf('month').startOf('week')
-
+const renderCalendar = (selectedDate, dates, highlight) => {
   const html = []
+  let day = selectedDate.startOf('month').startOf('week')
   let grid, firstIteration
+
   grid = firstIteration = 42
   while (grid) {
     if (grid !== firstIteration) day = day.add(1, 'day')
@@ -55,6 +55,6 @@ const renderCalendar = (selectedDate, highlight) => {
 
 export default () => (
   <Context.Consumer>
-    {({ state: { selectedDate, highlight }}) => renderCalendar(selectedDate, highlight)}
+    {({ state: { selectedDate, dates, highlight }}) => renderCalendar(selectedDate, dates, highlight)}
   </Context.Consumer>
 )
